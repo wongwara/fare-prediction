@@ -81,11 +81,6 @@ lr.fit(X_train, y_train)
 y_train_preds_lr = lr.predict(X_train)
 y_test_preds_lr = lr.predict(X_test)
 
-# Save the Linear Regression model
-joblib.dump(lr, 'models/lr_model.joblib')
-
-# Save the KNN model
-joblib.dump(knn_model, 'models/knn_model.joblib')
 import pickle
 # Save the linear regression model
 data = {"model": lr}
