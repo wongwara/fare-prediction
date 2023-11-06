@@ -9,10 +9,10 @@ import sys
 import joblib
 
 # Load the model using a relative path
-knn_model_path = "./models/knn.joblib"
-xgb_model_path = "./models/xgb_bestparam.joblib"
-loaded_model = joblib.load(knn_model_path)
-loaded_model = joblib.load(xgb_model_path)
+# knn_model_path = "./models/knn.joblib"
+# xgb_model_path = "./models/xgb_bestparam.joblib"
+# loaded_model = joblib.load(knn_model_path)
+# loaded_model = joblib.load(xgb_model_path)
 
 data = load_model()
 regressor_loaded = data["model"]
