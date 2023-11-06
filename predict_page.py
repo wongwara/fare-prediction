@@ -143,7 +143,8 @@ def show_predict_page():
 
         # Drop date columns
         X = X.drop(columns=['flightDate','departureTime'])
-
+        X = X[['totalTravelDistance', 'isNonStop', 'isBasicEconomy', 'startingAirport', 'destinationAirport', 'segmentsCabinCode','flightDate_day', 'flightDate_month', 'flightDate_year',
+                         'DepartTime_hour', 'DepartTime_minute', 'DepartTime_second']]
         total_fare = regressor_loaded.predict(X)
         total_fare = np.round(total_fare, 2)  # Round the value to two digits
         total_fare_str = str(total_fare[0])  # Convert to string
