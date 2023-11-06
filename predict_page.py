@@ -133,7 +133,6 @@ def show_predict_page():
         X = X.drop(columns=['searchDate', 'flightDate'])
 
         # Extract and create new columns for hours, minutes, and seconds for departureTime
-        X['departuretime'] = pd.to_datetime(X['departuretime'], unit='s')
         X['DepartTime_hour'] = X['departureTime'].dt.hour
         X['DepartTime_minute'] = X['departureTime'].dt.minute
         X['DepartTime_second'] = X['departureTime'].dt.second
