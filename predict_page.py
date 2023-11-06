@@ -17,6 +17,7 @@ xgb_model = joblib.load(xgb_model_path)
 
 regressor_loaded = load_model()
 knn_regressor_loaded = load_knn_model()
+keras_regressor_loaded = load_keras_model()
 
 # Load the model using a relative path
 # knn_model_path = "./models/knn.joblib"
@@ -172,7 +173,7 @@ def show_predict_page():
         total_fare_str_xg = str(total_fare_xg[0])  # Convert to string
         st.write(f"The total fare for your trip with XGBoost Regressor{total_fare_str_xg}$")
 
-        total_fare_tf = tfdf_model.predict(X)
+        total_fare_tf = keras_regressor_loaded.predict(X)
         total_fare_tf = np.round(total_fare_tf, 2)  # Round the value to two digits
         total_fare_str_tf = str(total_fare_tf[0])  # Convert to string
         st.write(f"The total fare for your trip with XGBoost Regressor{total_fare_str_tf}$")
