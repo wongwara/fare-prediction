@@ -8,7 +8,7 @@ import tensorflow as tf
 # data = load_model()
 # regressor_loaded = data["model"]
 
-loaded_model = tf.keras.models.load_model("models/tfdf_model")
+# loaded_model = tf.keras.models.load_model("models/tfdf_model")
 
 def show_predict_page():
     st.title(" ✈️ Fare Prediction")
@@ -114,7 +114,9 @@ def show_predict_page():
         'startingAirport':[startingAirport],
         'destinationAirport':[destinationAirport],
         'departuretime':[departure_time],
-        'SegmentsCabincode':[segmentsCabinCode]
+        'SegmentsCabincode':[segmentsCabinCode],
+        'isNonStop': False,  # Set default value to False
+        'isBasicEconomy': False  # Set default value to False
         })
    # Transform date column: searchDate
     X['searchDate'] = pd.to_datetime(X['searchDate'])
@@ -136,8 +138,7 @@ def show_predict_page():
     X['DepartTime_hour'] = X['departureTime'].dt.hour
     X['DepartTime_minute'] = X['departureTime'].dt.minute
     X['DepartTime_second'] = X['departureTime'].dt.second
-
-    # Now you have a DataFrame X with the transformed columns
+    # Now  a DataFrame X with the transformed columns
     st.write(X)
     
     # Example usage of the collected inputs
