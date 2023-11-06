@@ -4,9 +4,9 @@ import re
 from datetime import datetime, time
 import tensorflow as tf
 
-from prediction import load_model
-data = load_model()
-regressor_loaded = data["model"]
+# from prediction import load_model
+# data = load_model()
+# regressor_loaded = data["model"]
 
 loaded_model = tf.keras.models.load_model("../models/tfdf_model")
 
