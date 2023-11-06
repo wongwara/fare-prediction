@@ -16,7 +16,7 @@ import joblib
 
 data = load_model()
 regressor_loaded = data["model"]
-knn_regressor_loaded = data["knn_model"]
+knn_regressor_loaded = data["knn"]
 
 # loaded_model = tf.keras.models.load_model("models/tfdf_model")
 
