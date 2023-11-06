@@ -19,7 +19,7 @@ df['flightDate_year'] = df['flightDate'].dt.year
 #drop date cols
 df = df.drop(columns=['searchDate', 'flightDate'])
 
-df['DepartTime'] = df['segmentsDepartureTimeEpochSeconds'].apply(lambda x: x[0])
+df['DepartTime'] = df['segmentsDepartureTimeEpochSeconds'].apply(lambda x: x[1:-1].split(',')[0] if isinstance(x, str) else x)
 df['DepartTime'] = pd.to_datetime(df['DepartTime'], unit='s')
 
 # Extract and create new columns for hours, minutes, and seconds
