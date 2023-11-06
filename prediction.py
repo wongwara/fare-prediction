@@ -117,7 +117,7 @@ with open('saved_knn.pkl', 'wb') as file:
 
 keras ={"keras_model": keras_model}
 with open('saved_keras.pkl', 'wb') as file:
-    pickle.dump(kerase, file)
+    pickle.dump(keras, file)
   
 # Load the linear regression model
 def load_model():
