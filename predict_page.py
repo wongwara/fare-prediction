@@ -9,7 +9,7 @@ def show_predict_page():
     st.subheader("We need some information to predict the total Fare for your trip")
 
     # Input search date
-    search_date = st.date_input("Search Date, value=datetime.today())
+    search_date = st.date_input("Search Date", value=datetime.today())
     # Input flight date with a calendar widget
     flight_date = st.date_input("Flight Date", use_container_width=True, value=pd.to_datetime("2023-11-01"))
 
