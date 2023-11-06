@@ -95,14 +95,8 @@ def show_predict_page():
     cabin = st.selectbox("cabin code", cabin_options)
     segmentsCabinCode = cabin_dict[cabin]
 
-    # Input starting airport
-    starting_airport = st.text_input("Starting Airport", "JFK")
-
-    # Input destination airport
-    destination_airport = st.text_input("Destination Airport", "LAX")
-
     # Example usage of the collected inputs
     st.write("Selected Flight Date:", flight_date)
-    st.write("Cabin Code:", cabin_code)
+    st.write("Cabin Code:", segmentsCabinCode)
     st.write("Starting Airport:", starting_airport)
     st.write("Destination Airport:", destination_airport)
