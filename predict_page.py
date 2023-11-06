@@ -5,8 +5,15 @@ from datetime import datetime, time
 import tensorflow as tf
 from prediction import load_model
 import numpy as np
-import sys
 import joblib
+import os
+
+# Get the absolute path to the models directory
+models_dir = os.path.abspath('models')
+
+# Load the KNN model with the full path
+knn_model_path = os.path.join(models_dir, 'knn_model.joblib')
+knn_model = joblib.load(knn_model_path)
 
 # Load the model using a relative path
 # knn_model_path = "./models/knn.joblib"
