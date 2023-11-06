@@ -140,14 +140,5 @@ def show_predict_page():
         total_fare = np.round(total_fare, 2)  # Round the value to two digits
         total_fare_str = str(total_fare[0])  # Convert to string
         st.write(f"The total fare for your trip {total_fare_str}$")
-        
-    # Example usage of the collected inputs
-    st.write("Selected Flight Date:", flight_date)
-    st.write("Cabin Code:", segmentsCabinCode)
-    st.write("Starting Airport:", starting_airport)
-    st.write("Destination Airport:", destination_airport)
-    st.write("Departure Time:", departure_time)
-
-    predictions = loaded_model.predict(X)
     
 
