@@ -5,6 +5,15 @@ from datetime import datetime, time
 import tensorflow as tf
 from prediction import load_model
 import numpy as np
+import sys
+import joblib
+
+# Load the model using a relative path
+knn_model_path = "./models/knn.joblib"
+xgb_model_path = "./models/xgb_bestparam.joblib"
+loaded_model = joblib.load(knn_model_path)
+loaded_model = joblib.load(xgb_model_path)
+
 data = load_model()
 regressor_loaded = data["model"]
 
@@ -105,19 +114,6 @@ def show_predict_page():
     cabin = st.selectbox("cabin code", cabin_options)
     segmentsCabinCode = cabin_dict[cabin]
     ok = st.button("Calculate total fare for your trip")
-    #  Feature names unseen at fit time:
-    # - SegmentsCabincode
-    # - departureTime
-    # - searchDate_day
-    # - searchDate_month
-    # - searchDate_year
-    # Feature names seen at fit time, yet now missing:
-    # - flightDate_day
-    # - flightDate_month
-    # - flightDate_year
-    # - segmentsCabinCode
-    # - totalTravelDistance
-
     if ok:
         X = pd.DataFrame({
         'flightDate':[flightDate],
