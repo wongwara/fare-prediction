@@ -114,7 +114,7 @@ def show_predict_page():
         'flightDate':[flightDate],
         'startingAirport':[startingAirport],
         'destinationAirport':[destinationAirport],
-        'departuretime':[departuretime],
+        'departuretime':[departure_time],
         'SegmentsCabincode':[segmentsCabinCode]
         })
     prediction = regressor_loaded.predict(X)
