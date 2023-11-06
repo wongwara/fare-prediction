@@ -25,7 +25,7 @@ knn_regressor_loaded = load_knn_model()
 # loaded_model = joblib.load(xgb_model_path)
 
 # Load the keras model with the full path
-tfdf_model_path = os.path.join(models_dir, 'tfdf_model.joblib')
+tfdf_model_path = os.path.join(models_dir, 'tfdf.joblib')
 tfdf_model = joblib.load(tfdf_model_path)
 
 def show_predict_page():
