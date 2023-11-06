@@ -59,7 +59,7 @@ import joblib
 from sklearn.neighbors import KNeighborsRegressor  # Import KNN model
 
 # Load the KNN model
-knn_model = joblib.load('./models/knn_model.joblib')
+knn_model = joblib.load('./models/knn.joblib')
 knn_model.fit(X_train, y_train)
 
 # Model evaluation for training set
