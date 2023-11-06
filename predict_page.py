@@ -27,7 +27,7 @@ def show_predict_page():
         'DFW: Dallas/Fort Worth International Airport':4,
         'BOS: Logan International Airport':1,
         'EWR: Newark Liberty International Airport':6,
-        'SFO: San Francisco International Airport':14
+        'SFO: San Francisco International Airport':14,
         'ORD: O'Hare International Airport':12,
         'MIA: Miami International Airport':11
             }
