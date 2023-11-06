@@ -8,7 +8,7 @@ import tensorflow as tf
 # data = load_model()
 # regressor_loaded = data["model"]
 
-loaded_model = tf.keras.models.load_model("../models/tfdf_model")
+# loaded_model = tf.keras.models.load_model("../models/tfdf_model")
 
 def show_predict_page():
     st.title(" ✈️ Fare Prediction")
@@ -147,6 +147,6 @@ def show_predict_page():
     st.write("Destination Airport:", destination_airport)
     st.write("Departure Time:", departure_time)
 
-    predictions = loaded_model.predict(X)
-    st.write("Predicted Total Fare:", predictions[0])
+    # predictions = loaded_model.predict(X)
+    # st.write("Predicted Total Fare:", predictions[0])
 
