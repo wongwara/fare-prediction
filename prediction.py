@@ -56,10 +56,15 @@ def split_sets_random(features, target, test_ratio=0.2):
   
 X_train, y_train, X_val, y_val, X_test, y_test = split_sets_random(features, target, test_ratio=0.2)
 import joblib
-from sklearn.neighbors import KNeighborsRegressor  # Import KNN model
+import os
 
-# Load the KNN model
-knn_model = joblib.load('models/knn_model.joblib')
+# Get the absolute path to the models directory
+models_dir = os.path.abspath('models')
+
+# Load the KNN model with the full path
+knn_model_path = os.path.join(models_dir, 'knn_model.joblib')
+knn_model = joblib.load(knn_model_path)
+
 knn_model.fit(X_train, y_train)
 
 # Model evaluation for training set
