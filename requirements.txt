@@ -9,3 +9,4 @@ datetime
 tensorflow==2.14.0
 joblib
 dill
+tensorflow_decision_forests
