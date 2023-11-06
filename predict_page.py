@@ -124,10 +124,11 @@ def show_predict_page():
         X['searchDate_year'] = X['searchDate'].dt.year
 
         # Transform date column: flightDate
-        X['flightDate'] = pd.to_datetime(X['flightDate'])
-        X['flightDate_day'] = X['flightDate'].dt.day
-        X['flightDate_month'] = X['flightDate'].dt.month
-        X['flightDate_year'] = X['flightDate'].dt.year
+        hour, minute = map(int, departure_time.split(':'))
+
+        X['DepartTime_hour'] = hour
+        X['DepartTime_minute'] = minute
+        X['DepartTime_second'] = 0  # Since seconds are always 00
 
         # Drop date columns
         X = X.drop(columns=['searchDate', 'flightDate'])
