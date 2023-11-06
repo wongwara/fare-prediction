@@ -123,10 +123,10 @@ def show_predict_page():
     cabin = st.selectbox("cabin code", cabin_options)
     segmentsCabinCode = cabin_dict[cabin]
     # Set isNonStop based on segmentsCabinCode and specified conditions
-    if segmentsCabinCode in [28, 33, 2, 24]:
-        isNonStop == 1
+   if segmentsCabinCode in [28, 33, 2, 24]:
+        isNonStop = True
     else:
-        isNonStop == 0
+        isNonStop = False
 
     ok = st.button("Calculate total fare for your trip")
     if ok:
@@ -137,7 +137,7 @@ def show_predict_page():
         'departureTime': [departure_time], 
         'segmentsCabinCode':[segmentsCabinCode],
         'isNonStop': [isNonStop], 
-        'isBasicEconomy': [0],  # Set default value to False
+        'isBasicEconomy': [False],  # Set default value to False
         'totalTravelDistance': [1569.618] #Mean total travel distance
         })
     
