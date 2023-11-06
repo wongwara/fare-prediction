@@ -115,30 +115,30 @@ def show_predict_page():
         'destinationAirport':[destinationAirport],
         'departuretime':[departure_time],
         'SegmentsCabincode':[segmentsCabinCode],
-        'isNonStop': False,  # Set default value to False
-        'isBasicEconomy': False  # Set default value to False
+        'isNonStop': [False],  # Set default value to False
+        'isBasicEconomy': [False]  # Set default value to False
         })
-   # Transform date column: searchDate
-    X['searchDate'] = pd.to_datetime(X['searchDate'])
-    X['searchDate_day'] = X['searchDate'].dt.day
-    X['searchDate_month'] = X['searchDate'].dt.month
-    X['searchDate_year'] = X['searchDate'].dt.year
+       # Transform date column: searchDate
+        X['searchDate'] = pd.to_datetime(X['searchDate'])
+        X['searchDate_day'] = X['searchDate'].dt.day
+        X['searchDate_month'] = X['searchDate'].dt.month
+        X['searchDate_year'] = X['searchDate'].dt.year
 
-    # Transform date column: flightDate
-    X['flightDate'] = pd.to_datetime(X['flightDate'])
-    X['flightDate_day'] = X['flightDate'].dt.day
-    X['flightDate_month'] = X['flightDate'].dt.month
-    X['flightDate_year'] = X['flightDate'].dt.year
+        # Transform date column: flightDate
+        X['flightDate'] = pd.to_datetime(X['flightDate'])
+        X['flightDate_day'] = X['flightDate'].dt.day
+        X['flightDate_month'] = X['flightDate'].dt.month
+        X['flightDate_year'] = X['flightDate'].dt.year
 
-    # Drop date columns
-    X = X.drop(columns=['searchDate', 'flightDate'])
+        # Drop date columns
+        X = X.drop(columns=['searchDate', 'flightDate'])
 
-    # Extract and create new columns for hours, minutes, and seconds for departureTime
-    X['departuretime'] = pd.to_datetime(X['departuretime'], unit='s')
-    X['DepartTime_hour'] = X['departureTime'].dt.hour
-    X['DepartTime_minute'] = X['departureTime'].dt.minute
-    X['DepartTime_second'] = X['departureTime'].dt.second
-    # Now  a DataFrame X with the transformed columns
+        # Extract and create new columns for hours, minutes, and seconds for departureTime
+        X['departuretime'] = pd.to_datetime(X['departuretime'], unit='s')
+        X['DepartTime_hour'] = X['departureTime'].dt.hour
+        X['DepartTime_minute'] = X['departureTime'].dt.minute
+        X['DepartTime_second'] = X['departureTime'].dt.second
+        # Now  a DataFrame X with the transformed columns
     st.write(X)
     
     # Example usage of the collected inputs
