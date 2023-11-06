@@ -6,4 +6,4 @@ scikit-learn
 matplotlib
 plotly.express
 datetime
-tensorflow
+tensorflow=2.14.0
