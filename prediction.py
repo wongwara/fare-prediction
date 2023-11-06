@@ -85,3 +85,28 @@ joblib.dump(lr, 'models/lr_model.joblib')
 
 # Save the KNN model
 joblib.dump(knn_model, 'models/knn_model.joblib')
+
+# Save the linear regression model
+data = {"model": lr}
+with open('saved_steps.pkl', 'wb') as file:
+    pickle.dump(data, file)
+
+# Save the KNN model
+knn = {"knn_model": knn_model}
+with open('saved_knn.pkl', 'wb') as file:
+    pickle.dump(knn, file)
+
+# Load the linear regression model
+def load_model():
+    with open('saved_steps.pkl', 'rb') as file:
+        data = pickle.load(file)
+    return data["model"]
+
+# Load the KNN model
+def load_knn_model():
+    with open('saved_knn.pkl', 'rb') as file:
+        knn = pickle.load(file)
+    return knn["knn_model"]
+
+regressor_loaded = load_model()
+knn_regressor_loaded = load_knn_model()
