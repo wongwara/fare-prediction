@@ -112,7 +112,7 @@ def show_predict_page():
         'flightDate':[flightDate],
         'startingAirport':[startingAirport],
         'destinationAirport':[destinationAirport],
-        'departuretime':[departure_time],
+        'departureTime': [departure_time], 
         'SegmentsCabincode':[segmentsCabinCode],
         'isNonStop': [False],  # Set default value to False
         'isBasicEconomy': [False]  # Set default value to False
