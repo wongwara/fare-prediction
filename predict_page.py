@@ -42,13 +42,8 @@ def show_predict_page():
     destination_airport = st.selectbox("Destination Airport", airport_options)
     destinationAirport = airport_dict[destination_airport]
 
-    # Input departure time with hours, minutes, and seconds
-    departure_hour = st.selectbox("Departure Hour", list(range(24)))
-    departure_minute = st.selectbox("Departure Minute", list(range(60)))
-    departure_second = st.selectbox("Departure Second", list(range(60)))
-
-    # Combine the selected values into a datetime object
-    departure_time = f"{departure_hour:02d}:{departure_minute:02d}:{departure_second:02d}"
+    # Input departure time 
+    departure_time = st.time_input('Set an alarm for', value=None)
         
     #Input cabin code
     cabin_dict = {'coach - coach':0,
