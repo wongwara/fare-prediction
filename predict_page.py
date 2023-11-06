@@ -11,7 +11,7 @@ import os
 # Get the absolute path to the models directory
 models_dir = os.path.abspath('models')
 
-# Load the KNN model with the full path
+# Load the XGB model with the full path
 xgb_model_path = os.path.join(models_dir, 'xgb_bestparam.joblib')
 xgb_model = joblib.load(xgb_model_path)
 
@@ -24,9 +24,9 @@ knn_regressor_loaded = load_knn_model()
 # loaded_model = joblib.load(knn_model_path)
 # loaded_model = joblib.load(xgb_model_path)
 
-
-
-tf_loaded_model = tf.keras.models.load_model("tfdf_model.joblib")
+# Load the keras model with the full path
+tfdf_model_path = os.path.join(models_dir, 'tfdf_model.joblib')
+tfdf_model = joblib.load(tfdf_model_path)
 
 def show_predict_page():
     st.title(" ✈️ Fare Prediction")
@@ -166,7 +166,7 @@ def show_predict_page():
         total_fare_str_xg = str(total_fare_xg[0])  # Convert to string
         st.write(f"The total fare for your trip with XGBoost Regressor{total_fare_str_xg}$")
 
-        total_fare_tf = tf_loaded_model.predict(X)
+        total_fare_tf = tfdf_model.predict(X)
         total_fare_tf = np.round(total_fare_tf, 2)  # Round the value to two digits
         total_fare_str_tf = str(total_fare_tf[0])  # Convert to string
         st.write(f"The total fare for your trip with XGBoost Regressor{total_fare_str_tf}$")
