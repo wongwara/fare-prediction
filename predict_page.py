@@ -4,6 +4,7 @@ import re
 from datetime import datetime, time
 import tensorflow as tf
 from prediction import load_model
+import numpy as np
 data = load_model()
 regressor_loaded = data["model"]
 
