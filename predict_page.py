@@ -3,10 +3,9 @@ import pandas as pd
 import re
 from datetime import datetime, time
 import tensorflow as tf
-
-# from prediction import load_model
-# data = load_model()
-# regressor_loaded = data["model"]
+from prediction import load_model
+data = load_model()
+regressor_loaded = data["model"]
 
 # loaded_model = tf.keras.models.load_model("models/tfdf_model")
 
@@ -138,9 +137,11 @@ def show_predict_page():
         X['DepartTime_hour'] = X['departureTime'].dt.hour
         X['DepartTime_minute'] = X['departureTime'].dt.minute
         X['DepartTime_second'] = X['departureTime'].dt.second
-        # Now  a DataFrame X with the transformed columns
-    st.write(X)
-    
+        total_fare = regressor_loaded.predict(X)
+        total_fare = np.round(total_fare, 2)  # Round the value to two digits
+        total_fare_str = str(total_fare[0])  # Convert to string
+        st.write(f"The total fare for your trip {total_fare_str}$")
+        
     # Example usage of the collected inputs
     st.write("Selected Flight Date:", flight_date)
     st.write("Cabin Code:", segmentsCabinCode)
@@ -149,5 +150,5 @@ def show_predict_page():
     st.write("Departure Time:", departure_time)
 
     predictions = loaded_model.predict(X)
-    st.write("Predicted Total Fare:", predictions[0])
+    
 
