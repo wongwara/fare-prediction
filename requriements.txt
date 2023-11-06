@@ -1,7 +1,7 @@
 streamlit
-numpy
 pandas
-matplotlib.pyplot
+seaborn
 scikit-learn
+matplotlib
 xgboost
-plotly
+plotly.express
