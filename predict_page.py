@@ -47,7 +47,7 @@ def show_predict_page():
     default_time = time(10, 30)
     # Input departure time 
     departure_time = st.time_input('Departure time', value=default_time)
-
+    
     #Input cabin code
     cabin_dict = {'coach - coach':0,
                   'coach - coach - coach':1,
@@ -106,6 +106,19 @@ def show_predict_page():
     cabin = st.selectbox("cabin code", cabin_options)
     segmentsCabinCode = cabin_dict[cabin]
     ok = st.button("Calculate total fare for your trip")
+    #  Feature names unseen at fit time:
+    # - SegmentsCabincode
+    # - departureTime
+    # - searchDate_day
+    # - searchDate_month
+    # - searchDate_year
+    # Feature names seen at fit time, yet now missing:
+    # - flightDate_day
+    # - flightDate_month
+    # - flightDate_year
+    # - segmentsCabinCode
+    # - totalTravelDistance
+
     if ok:
         X = pd.DataFrame({
         'searchDate':[searchDate],
@@ -113,20 +126,22 @@ def show_predict_page():
         'startingAirport':[startingAirport],
         'destinationAirport':[destinationAirport],
         'departureTime': [departure_time], 
-        'SegmentsCabincode':[segmentsCabinCode],
+        'segmentsCabinCode':[segmentsCabinCode],
         'isNonStop': [False],  # Set default value to False
         'isBasicEconomy': [False]  # Set default value to False
+        'totalTravelDistance': [1569.618]
         })
        # Transform date column: searchDate
         X['searchDate'] = pd.to_datetime(X['searchDate'])
         X['searchDate_day'] = X['searchDate'].dt.day
         X['searchDate_month'] = X['searchDate'].dt.month
         X['searchDate_year'] = X['searchDate'].dt.year
-        # Get the selected hour
-        selected_hour = departure_time.hour
-
-        # Display the selected hour
-        st.write(f'Selected Hour: {selected_hour}')
+        # Transform date column: flightDate
+        X['flightDate'] = pd.to_datetime(X['flightDate'])
+        X['flightDate_day'] = X['flightDate'].dt.day
+        X['flightDate_month'] = X['flightDate'].dt.month
+        X['flightDate_year'] = X['flightDate'].dt.year
+        
         hour = departure_time.hour
         minute = departure_time.minute
         X['DepartTime_hour'] = hour
