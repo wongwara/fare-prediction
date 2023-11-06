@@ -55,6 +55,16 @@ def split_sets_random(features, target, test_ratio=0.2):
     return X_train, y_train, X_val, y_val, X_test, y_test
   
 X_train, y_train, X_val, y_val, X_test, y_test = split_sets_random(features, target, test_ratio=0.2)
+import joblib
+from sklearn.neighbors import KNeighborsRegressor  # Import KNN model
+
+# Load the KNN model
+knn_model = joblib.load('./models/knn_model.joblib')
+knn_model.fit(X_train, y_train)
+
+# Model evaluation for training set
+y_train_preds_knn = knn_model.predict(X_train)
+y_test_preds_knn = knn_model.predict(X_test)
 
 from sklearn.linear_model import LinearRegression
 
@@ -75,5 +85,9 @@ def load_model():
         data = pickle.load(file)
     return data
 
-regressor_loaded = data["model"]
+knn = {"knn_model": knn_model}
+with open('saved_knn.pkl', 'wb') as file:
+    pickle.dump(knn, file)
 
+regressor_loaded = data["model"]
+knn_regressor_loaded = knn["knn_model"]
