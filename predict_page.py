@@ -26,7 +26,7 @@ knn_regressor_loaded = load_knn_model()
 
 
 
-# loaded_model = tf.keras.models.load_model("models/tfdf_model")
+tf_loaded_model = tf.keras.models.load_model("tfdf_model")
 
 def show_predict_page():
     st.title(" ✈️ Fare Prediction")
@@ -165,6 +165,11 @@ def show_predict_page():
         total_fare_xg = np.round(total_fare_xg, 2)  # Round the value to two digits
         total_fare_str_xg = str(total_fare_xg[0])  # Convert to string
         st.write(f"The total fare for your trip with XGBoost Regressor{total_fare_str_xg}$")
+
+        total_fare_tf = tf_loaded_model.predict(X)
+        total_fare_tf = np.round(total_fare_tf, 2)  # Round the value to two digits
+        total_fare_str_tf = str(total_fare_tf[0])  # Convert to string
+        st.write(f"The total fare for your trip with XGBoost Regressor{total_fare_str_tf}$")
         
     
 
