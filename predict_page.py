@@ -136,6 +136,7 @@ def show_predict_page():
         X['searchDate_day'] = X['searchDate'].dt.day
         X['searchDate_month'] = X['searchDate'].dt.month
         X['searchDate_year'] = X['searchDate'].dt.year
+        
         # Transform date column: flightDate
         X['flightDate'] = pd.to_datetime(X['flightDate'])
         X['flightDate_day'] = X['flightDate'].dt.day
@@ -149,7 +150,7 @@ def show_predict_page():
         X['DepartTime_second'] = 0  # Since seconds are always 00
 
         # Drop date columns
-        X = X.drop(columns=['searchDate', 'flightDate'])
+        X = X.drop(columns=['searchDate', 'flightDate','departureTime'])
 
         total_fare = regressor_loaded.predict(X)
         total_fare = np.round(total_fare, 2)  # Round the value to two digits
