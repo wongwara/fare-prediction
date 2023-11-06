@@ -92,8 +92,8 @@ def show_predict_page():
                   'coach||coach||business||coach':50
                  }
     cabin_options = list(cabin_dict.keys())
-        cabin = st.selectbox("cabin code", cabin_options)
-        segmentsCabinCode = cabin_dict[cabin]
+    cabin = st.selectbox("cabin code", cabin_options)
+    segmentsCabinCode = cabin_dict[cabin]
 
     # Input starting airport
     starting_airport = st.text_input("Starting Airport", "JFK")
