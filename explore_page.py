@@ -7,7 +7,7 @@ import seaborn as sns
 import numpy as np
 
 def load_data():
-    df = pd.read_csv("https://raw.githubusercontent.com/wongwara/predict_next_month/main/df_monthly.csv")
+    df = pd.read_csv("https://raw.githubusercontent.com/wongwara/fare-prediction/main/data/sample_itineraries.csv")
     
     return df
 
