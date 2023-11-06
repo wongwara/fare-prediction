@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import re
-import datetime
+from datetime import datetime
 
 def show_predict_page():
     st.title(" ✈️ Fare Prediction")
