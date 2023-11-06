@@ -3,15 +3,19 @@ import pandas as pd
 import re
 from datetime import datetime
 
+from prediction import load_model
+data = load_model()
+regressor_loaded = data["model"]
+
 def show_predict_page():
     st.title(" ✈️ Fare Prediction")
     st.write(""" This project is for the user and students to search the total fare from related information""")
     st.subheader("We need some information to predict the total Fare for your trip")
 
     # Input search date
-    search_date = st.date_input("Search Date", value=datetime.today(), format="YYYY-MM-DD")
+    searchDate = st.date_input("Search Date", value=datetime.today(), format="YYYY-MM-DD")
     # Input flight date with a calendar widget
-    flight_date = st.date_input("Flight Date", value=datetime.today(), format="YYYY-MM-DD")
+    flightDate = st.date_input("Flight Date", value=datetime.today(), format="YYYY-MM-DD")
     # Starting Airport
     airport_dict = {
         'OAK - Oakland International Airport':15,
@@ -95,7 +99,20 @@ def show_predict_page():
     cabin_options = list(cabin_dict.keys())
     cabin = st.selectbox("cabin code", cabin_options)
     segmentsCabinCode = cabin_dict[cabin]
-
+    ok = st.button("Calculate total fare for your trip")
+    if ok:
+        X = pd.DataFrame({
+        'searchDate':[searchDate],
+        'flightDate':[flightDate],
+        'startingAirport':[startingAirport],
+        'destinationAirport':[destinationAirport],
+        'SegmentsCabincode':[segmentsCabinCode]
+        })
+    prediction = regressor_loaded.predict(X)
+    prediction = np.round(prediction, 2)  # Round the value to two digits
+    prediction_str = str(prediction[0])  # Convert to string
+    st.write(f"the predict total fare spending for your trip would be {prediction_str}$")
+    
     # Example usage of the collected inputs
     st.write("Selected Flight Date:", flight_date)
     st.write("Cabin Code:", segmentsCabinCode)
