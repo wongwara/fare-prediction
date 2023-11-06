@@ -4,9 +4,6 @@ import warnings
 warnings.filterwarnings("ignore")
 df = pd.read_csv("https://raw.githubusercontent.com/wongwara/fare-prediction/main/data/sample_itineraries.csv")
 
-#drop useless columns
-df = df.drop(columns=['Departure', 'Arrival', 'segmentsDistance', 'segmentsDepartureTimeRaw', 'segmentsArrivalTimeRaw', 'segmentsDurationInSeconds', 'segmentsDistance', 'travelDuration', 'SumsegmentsDurationInSeconds'])
-
 #transform date column: searchDate
 df['searchDate'] = pd.to_datetime(df['searchDate'])
 df['searchDate_day'] = df['searchDate'].dt.day
