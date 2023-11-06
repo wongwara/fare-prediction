@@ -8,7 +8,7 @@ import tensorflow as tf
 # data = load_model()
 # regressor_loaded = data["model"]
 
-loaded_model = tf.keras.models.load_model("../models/tfdf_model")
+loaded_model = tf.keras.models.load_model("/models/tfdf_model")
 
 def show_predict_page():
     st.title(" ✈️ Fare Prediction")
