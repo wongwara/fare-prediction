@@ -41,10 +41,11 @@ def show_predict_page():
     
     destination_airport = st.selectbox("Destination Airport", airport_options)
     destinationAirport = airport_dict[destination_airport]
-
+    # Set the default time to 10:30 AM
+    default_time = time(10, 30)
     # Input departure time 
-    departure_time = st.time_input('Set an alarm for', value=None)
-        
+    departure_time = st.time_input('Departure time', value=default_time)
+
     #Input cabin code
     cabin_dict = {'coach - coach':0,
                   'coach - coach - coach':1,
