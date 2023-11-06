@@ -12,11 +12,11 @@ import os
 models_dir = os.path.abspath('models')
 
 # Load the KNN model with the full path
-knn_model_path = os.path.join(models_dir, 'knn_model.joblib')
-knn_model = joblib.load(knn_model_path)
+xgb_model_path = os.path.join(models_dir, 'xgb_bestparam.joblib')
+xgb_model = joblib.load(xgb_model_path)
 
 regressor_loaded = load_model()
-knn_regressor_loaded = load_knn_model()
+xgb_regressor_loaded = load_xgb_model()
 
 # Load the model using a relative path
 # knn_model_path = "./models/knn.joblib"
@@ -159,7 +159,7 @@ def show_predict_page():
         X = X.drop(columns=['flightDate','departureTime'])
         X = X[['totalTravelDistance', 'isNonStop', 'isBasicEconomy', 'startingAirport', 'destinationAirport', 'segmentsCabinCode','flightDate_day', 'flightDate_month', 'flightDate_year',
                          'DepartTime_hour', 'DepartTime_minute', 'DepartTime_second']]
-        total_fare = knn_regressor_loaded.predict(X)
+        total_fare = xgb_regressor_loaded.predict(X)
         total_fare = np.round(total_fare, 2)  # Round the value to two digits
         total_fare_str = str(total_fare[0])  # Convert to string
         st.write(f"The total fare for your trip {total_fare_str}$")
