@@ -1,7 +1,6 @@
 streamlit
 pandas
-seaborn
+xgboost
 scikit-learn
 matplotlib
-xgboost
 plotly.express
