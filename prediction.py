@@ -85,7 +85,7 @@ joblib.dump(lr, 'models/lr_model.joblib')
 
 # Save the KNN model
 joblib.dump(knn_model, 'models/knn_model.joblib')
-
+import pickle
 # Save the linear regression model
 data = {"model": lr}
 with open('saved_steps.pkl', 'wb') as file:
