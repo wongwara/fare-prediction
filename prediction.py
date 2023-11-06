@@ -72,7 +72,7 @@ y_train_preds_lr = lr.predict(X_train)
 y_test_preds_lr = lr.predict(X_test)
 
 import pickle
-data = {"model": linear}
+data = {"model": lr}
 with open('saved_steps.pkl', 'wb') as file:
     pickle.dump(data, file)
   
