@@ -177,7 +177,7 @@ def show_predict_page():
         total_fare_tf = keras_regressor_loaded.predict(X)
         total_fare_tf = np.round(total_fare_tf, 2)  # Round the value to two digits
         total_fare_str_tf = str(total_fare_tf[0])  # Convert to string
-        st.write(f"The total fare for your trip with XGBoost Regressor{total_fare_str_tf}$")
+        st.write(f"The total fare for your trip with tensorflow keras {total_fare_str_tf}$")
         
     
 
