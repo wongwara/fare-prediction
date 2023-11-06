@@ -128,7 +128,7 @@ def show_predict_page():
         'departureTime': [departure_time], 
         'segmentsCabinCode':[segmentsCabinCode],
         'isNonStop': [False],  # Set default value to False
-        'isBasicEconomy': [False]  # Set default value to False
+        'isBasicEconomy': [False],  # Set default value to False
         'totalTravelDistance': [1569.618]
         })
        # Transform date column: searchDate
