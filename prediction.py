@@ -59,7 +59,7 @@ import joblib
 from sklearn.neighbors import KNeighborsRegressor  # Import KNN model
 
 # Load the KNN model
-knn_model = joblib.load('./models/knn.joblib')
+knn_model = joblib.load('./models/knn_model.joblib')
 knn_model.fit(X_train, y_train)
 
 # Model evaluation for training set
@@ -75,19 +75,8 @@ lr.fit(X_train, y_train)
 y_train_preds_lr = lr.predict(X_train)
 y_test_preds_lr = lr.predict(X_test)
 
-import pickle
-data = {"model": lr}
-with open('saved_steps.pkl', 'wb') as file:
-    pickle.dump(data, file)
-  
-def load_model():
-    with open('saved_steps.pkl', 'rb') as file:
-        data = pickle.load(file)
-    return data
+# Save the Linear Regression model
+joblib.dump(lr, './models/lr_model.joblib')
 
-knn = {"knn_model": knn_model}
-with open('saved_knn.pkl', 'wb') as file:
-    pickle.dump(knn, file)
-
-regressor_loaded = data["model"]
-knn_regressor_loaded = knn["knn_model"]
+# Save the KNN model
+joblib.dump(knn_model, './models/knn_model.joblib')
