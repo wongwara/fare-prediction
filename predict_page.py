@@ -3,9 +3,9 @@ import pandas as pd
 import re
 from datetime import datetime
 
-from prediction import load_model
-data = load_model()
-regressor_loaded = data["model"]
+# from prediction import load_model
+# data = load_model()
+# regressor_loaded = data["model"]
 
 def show_predict_page():
     st.title(" ✈️ Fare Prediction")
