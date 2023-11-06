@@ -5,7 +5,7 @@ import datetime
 
 def show_predict_page():
     st.title(" ✈️ Fare Prediction")
-    st.write(""" This project is for the user and students to search the total fare from related information" ")
+    st.write(""" This project is for the user and students to search the total fare from related information""")
     st.subheader("We need some information to predict the total Fare for your trip")
 
     # Input search date
