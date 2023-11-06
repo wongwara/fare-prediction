@@ -7,3 +7,5 @@ matplotlib
 plotly.express
 datetime
 tensorflow==2.14.0
+joblib
+dill
