@@ -123,7 +123,7 @@ def show_predict_page():
     cabin = st.selectbox("cabin code", cabin_options)
     segmentsCabinCode = cabin_dict[cabin]
     # Set isNonStop based on segmentsCabinCode and specified conditions
-   if segmentsCabinCode in [28, 33, 2, 24]:
+    if segmentsCabinCode in [28, 33, 2, 24]:
         isNonStop = True
     else:
         isNonStop = False
