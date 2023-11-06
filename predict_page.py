@@ -41,6 +41,8 @@ def show_predict_page():
     
     destination_airport = st.selectbox("Destination Airport", airport_options)
     destinationAirport = airport_dict[destination_airport]
+
+    departuretime = st.time_input("Departure Time", value=None)
         
     #Input cabin code
     cabin_dict = {'coach - coach':0,
@@ -106,6 +108,7 @@ def show_predict_page():
         'flightDate':[flightDate],
         'startingAirport':[startingAirport],
         'destinationAirport':[destinationAirport],
+        'departuretime':[departuretime],
         'SegmentsCabincode':[segmentsCabinCode]
         })
     prediction = regressor_loaded.predict(X)
