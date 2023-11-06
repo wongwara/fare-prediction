@@ -133,9 +133,9 @@ def show_predict_page():
         X = X.drop(columns=['searchDate', 'flightDate'])
 
         # Extract and create new columns for hours, minutes, and seconds for departureTime
-        X['DepartTime_hour'] = X['departureTime'].hour
-        X['DepartTime_minute'] = X['departureTime'].minute
-        X['DepartTime_second'] = X['departureTime'].second
+        X['DepartTime_hour'] = X['departureTime'].dt.hour
+        X['DepartTime_minute'] = X['departureTime'].dt.minute
+        X['DepartTime_second'] = X['departureTime'].dt.second
         total_fare = regressor_loaded.predict(X)
         total_fare = np.round(total_fare, 2)  # Round the value to two digits
         total_fare_str = str(total_fare[0])  # Convert to string
