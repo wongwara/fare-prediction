@@ -24,15 +24,7 @@ knn_regressor_loaded = load_knn_model()
 # loaded_model = joblib.load(knn_model_path)
 # loaded_model = joblib.load(xgb_model_path)
 
-# Load the Linear Regression model
-loaded_lr = joblib.load('models/lr_model.joblib')
 
-# Load the KNN model
-loaded_knn_model = joblib.load('models/knn_model.joblib')
-
-# data = load_model()
-# regressor_loaded = data["model"]
-# knn_regressor_loaded = data["knn"]
 
 # loaded_model = tf.keras.models.load_model("models/tfdf_model")
 
