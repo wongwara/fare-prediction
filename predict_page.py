@@ -122,6 +122,12 @@ def show_predict_page():
     cabin_options = list(cabin_dict.keys())
     cabin = st.selectbox("cabin code", cabin_options)
     segmentsCabinCode = cabin_dict[cabin]
+    # Set isNonStop based on segmentsCabinCode and specified conditions
+    if segmentsCabinCode in [28, 33, 2, 24]:
+        isNonStop = True
+    else:
+        isNonStop = False
+
     ok = st.button("Calculate total fare for your trip")
     if ok:
         X = pd.DataFrame({
@@ -130,9 +136,9 @@ def show_predict_page():
         'destinationAirport':[destinationAirport],
         'departureTime': [departure_time], 
         'segmentsCabinCode':[segmentsCabinCode],
-        'isNonStop': [False],  # Set default value to False
+        'isNonStop': [isNonStop], 
         'isBasicEconomy': [False],  # Set default value to False
-        'totalTravelDistance': [1569.618]
+        'totalTravelDistance': [1569.618] #Mean total travel distance
         })
     
         # Transform date column: flightDate
