@@ -59,7 +59,7 @@ import joblib
 from sklearn.neighbors import KNeighborsRegressor  # Import KNN model
 
 # Load the KNN model
-knn_model = joblib.load('./models/knn_model.joblib')
+knn_model = joblib.load('models/knn_model.joblib')
 knn_model.fit(X_train, y_train)
 
 # Model evaluation for training set
@@ -76,7 +76,7 @@ y_train_preds_lr = lr.predict(X_train)
 y_test_preds_lr = lr.predict(X_test)
 
 # Save the Linear Regression model
-joblib.dump(lr, './models/lr_model.joblib')
+joblib.dump(lr, 'models/lr_model.joblib')
 
 # Save the KNN model
-joblib.dump(knn_model, './models/knn_model.joblib')
+joblib.dump(knn_model, 'models/knn_model.joblib')
