@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import warnings
 warnings.filterwarnings("ignore")
-df = pd.read_csv("https://raw.githubusercontent.com/wongwara/flight-streamlit-at3/main/data/sample_itineraries.csv?token=GHSAT0AAAAAACETSXPAZBNEACHN4ZUWZIW4ZKISTOA")
+df = pd.read_csv("https://raw.githubusercontent.com/wongwara/fare-prediction/main/data/sample_itineraries.csv")
 
 #drop useless columns
 df = df.drop(columns=['Departure', 'Arrival', 'segmentsDistance', 'segmentsDepartureTimeRaw', 'segmentsArrivalTimeRaw', 'segmentsDurationInSeconds', 'segmentsDistance', 'travelDuration', 'SumsegmentsDurationInSeconds'])
