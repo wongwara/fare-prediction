@@ -155,6 +155,11 @@ def show_predict_page():
         total_fare = np.round(total_fare, 2)  # Round the value to two digits
         total_fare_str = str(total_fare[0])  # Convert to string
         st.write(f"The total fare for your trip with Linear regression {total_fare_str}$")
+
+        total_fare_knn = knn_regressor_loaded.predict(X)
+        total_fare_knn = np.round(total_fare_knn, 2)  # Round the value to two digits
+        total_fare_str_knn = str(total_fare_knn[0])  # Convert to string
+        st.write(f"The total fare for your trip with KNN regressor {total_fare_str_knn}$")
         
         total_fare_xg = xgb_model.predict(X)
         total_fare_xg = np.round(total_fare_xg, 2)  # Round the value to two digits
