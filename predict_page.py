@@ -26,7 +26,7 @@ knn_regressor_loaded = load_knn_model()
 
 
 
-tf_loaded_model = tf.keras.models.load_model("tfdf_model")
+tf_loaded_model = tf.keras.models.load_model("tfdf_model.joblib")
 
 def show_predict_page():
     st.title(" ✈️ Fare Prediction")
