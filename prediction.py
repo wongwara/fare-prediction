@@ -102,7 +102,7 @@ test_dataset = test_dataset.batch(batch_size)
 
 # Build the model
 keras_model.compile(metrics=["mean_squared_error"])
-keras_model.fit(train_dataset, validation_data=validation_dataset, epochs=10)
+keras_model.fit(train_dataset, validation_data=validation_dataset)
 
 import pickle
 # Save the linear regression model
