@@ -3,7 +3,6 @@ import pandas as pd
 import re
 from datetime import datetime, time
 import tensorflow as tf
-from prediction import load_model
 import numpy as np
 import joblib
 import os
