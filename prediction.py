@@ -58,13 +58,14 @@ X_train, y_train, X_val, y_val, X_test, y_test = split_sets_random(features, tar
 import joblib
 import os
 
-# Get the absolute path to the models directory
-models_dir = os.path.abspath('models')
+# # Get the absolute path to the models directory
+# models_dir = os.path.abspath('models')
 
-# Load the KNN model with the full path
-knn_model_path = os.path.join(models_dir, 'knn.joblib')
-knn_model = joblib.load(knn_model_path)
-
+# # Load the KNN model with the full path
+# # knn_model_path = os.path.join(models_dir, 'knn.joblib')
+# knn_model = joblib.load(knn_model_path)
+from sklearn.neighbors import KNeighborsRegressor
+knn_model = KNeighborsRegressor(n_neighbors=3, weights='uniform',p=1)
 knn_model.fit(X_train, y_train)
 
 # Model evaluation for training set
