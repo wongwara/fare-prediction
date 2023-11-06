@@ -15,10 +15,10 @@ import joblib
 # loaded_model = joblib.load(xgb_model_path)
 
 # Load the Linear Regression model
-loaded_lr = joblib.load('./models/lr_model.joblib')
+loaded_lr = joblib.load('models/lr_model.joblib')
 
 # Load the KNN model
-loaded_knn_model = joblib.load('./models/knn_model.joblib')
+loaded_knn_model = joblib.load('models/knn_model.joblib')
 
 # data = load_model()
 # regressor_loaded = data["model"]
