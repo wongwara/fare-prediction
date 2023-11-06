@@ -122,10 +122,14 @@ def show_predict_page():
         X['searchDate_day'] = X['searchDate'].dt.day
         X['searchDate_month'] = X['searchDate'].dt.month
         X['searchDate_year'] = X['searchDate'].dt.year
+        # Get the selected hour
+        selected_hour = departure_time.hour
 
+        # Display the selected hour
+        st.write(f'Selected Hour: {selected_hour}')
         hour = departure_time.hour
         minute = departure_time.minute
-         X['DepartTime_hour'] = hour
+        X['DepartTime_hour'] = hour
         X['DepartTime_minute'] = minute
         X['DepartTime_second'] = 0  # Since seconds are always 00
 
