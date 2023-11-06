@@ -16,6 +16,7 @@ loaded_model = joblib.load(xgb_model_path)
 
 data = load_model()
 regressor_loaded = data["model"]
+knn_regressor_loaded = data["knn_model"]
 
 # loaded_model = tf.keras.models.load_model("models/tfdf_model")
 
