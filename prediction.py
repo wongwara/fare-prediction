@@ -4,12 +4,6 @@ import warnings
 warnings.filterwarnings("ignore")
 df = pd.read_csv("https://raw.githubusercontent.com/wongwara/fare-prediction/main/data/sample_itineraries.csv")
 
-#transform date column: searchDate
-df['searchDate'] = pd.to_datetime(df['searchDate'])
-df['searchDate_day'] = df['searchDate'].dt.day
-df['searchDate_month'] = df['searchDate'].dt.month
-df['searchDate_year'] = df['searchDate'].dt.year
-
 #transform date column: flightDate
 df['flightDate'] = pd.to_datetime(df['flightDate'])
 df['flightDate_day'] = df['flightDate'].dt.day
