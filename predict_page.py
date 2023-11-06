@@ -123,10 +123,9 @@ def show_predict_page():
         X['searchDate_month'] = X['searchDate'].dt.month
         X['searchDate_year'] = X['searchDate'].dt.year
 
-        # Transform date column: flightDate
-        hour, minute = map(int, departure_time.split(':'))
-
-        X['DepartTime_hour'] = hour
+        hour = departure_time.hour
+        minute = departure_time.minute
+         X['DepartTime_hour'] = hour
         X['DepartTime_minute'] = minute
         X['DepartTime_second'] = 0  # Since seconds are always 00
 
