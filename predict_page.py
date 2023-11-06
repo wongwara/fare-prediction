@@ -117,10 +117,29 @@ def show_predict_page():
         'departuretime':[departure_time],
         'SegmentsCabincode':[segmentsCabinCode]
         })
-    prediction = regressor_loaded.predict(X)
-    prediction = np.round(prediction, 2)  # Round the value to two digits
-    prediction_str = str(prediction[0])  # Convert to string
-    st.write(f"the predict total fare spending for your trip would be {prediction_str}$")
+   # Transform date column: searchDate
+    X['searchDate'] = pd.to_datetime(X['searchDate'])
+    X['searchDate_day'] = X['searchDate'].dt.day
+    X['searchDate_month'] = X['searchDate'].dt.month
+    X['searchDate_year'] = X['searchDate'].dt.year
+
+    # Transform date column: flightDate
+    X['flightDate'] = pd.to_datetime(X['flightDate'])
+    X['flightDate_day'] = X['flightDate'].dt.day
+    X['flightDate_month'] = X['flightDate'].dt.month
+    X['flightDate_year'] = X['flightDate'].dt.year
+
+    # Drop date columns
+    X = X.drop(columns=['searchDate', 'flightDate'])
+
+    # Extract and create new columns for hours, minutes, and seconds for departureTime
+    X['departureTime'] = pd.to_datetime(X['departureTime'], format='%H:%M:%S')
+    X['DepartTime_hour'] = X['departureTime'].dt.hour
+    X['DepartTime_minute'] = X['departureTime'].dt.minute
+    X['DepartTime_second'] = X['departureTime'].dt.second
+
+    # Now you have a DataFrame X with the transformed columns
+    st.write(X)
     
     # Example usage of the collected inputs
     st.write("Selected Flight Date:", flight_date)
