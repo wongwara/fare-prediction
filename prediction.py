@@ -30,8 +30,8 @@ df['DepartTime_second'] = df['DepartTime'].dt.second
 df = df[['totalTravelDistance', 'isNonStop', 'isBasicEconomy', 'startingAirport', 'destinationAirport', 'segmentsCabinCode','flightDate_day', 'flightDate_month', 'flightDate_year',
                          'DepartTime_hour', 'DepartTime_minute', 'DepartTime_second','totalFare']]
 
-cols = df_cleaned.columns.to_list()
-num_cols = df_cleaned.select_dtypes(np.number).columns.to_list()
+cols = df.columns.to_list()
+num_cols = df.select_dtypes(np.number).columns.to_list()
 cat_cols = list(set(cols) - set(num_cols))
 df['totalTravelDistance']= df['totalTravelDistance'].fillna(df['totalTravelDistance'].mean())
 
