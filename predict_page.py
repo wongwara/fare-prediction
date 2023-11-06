@@ -31,11 +31,12 @@ def show_predict_page():
         'ORD: O Hare International Airport':12,
         'MIA: Miami International Airport':11
             }
-        airport_options = list(airport_dict.keys())
-        staring_airport = st.selectbox("Staring Airport", airport_options)
-        startingAirport = airport_dict[staring_airport]
-        destination_airport = st.selectbox("Destination Airport", airport_options)
-        destinationAirport = airport_dict[destination_airport]
+    airport_options = list(airport_dict.keys())
+    starting_airport = st.selectbox("Starting Airport", airport_options)
+    startingAirport = airport_dict[starting_airport]
+    
+    destination_airport = st.selectbox("Destination Airport", airport_options)
+    destinationAirport = airport_dict[destination_airport]
         
     #Input cabin code
     cabin_dict = {'coach||coach':0,
