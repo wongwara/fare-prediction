@@ -129,7 +129,7 @@ def show_predict_page():
         isNonStop = True
     else:
         isNonStop = False
-
+    isNonStop = int(isNonStop)
     ok = st.button("Calculate total fare for your trip")
     if ok:
         X = pd.DataFrame({
@@ -139,7 +139,7 @@ def show_predict_page():
         'departureTime': [departure_time], 
         'segmentsCabinCode':[segmentsCabinCode],
         'isNonStop': [isNonStop], 
-        'isBasicEconomy': [False],  # Set default value to False
+        'isBasicEconomy': [0],  # Set default value to False
         'totalTravelDistance': [1569.618] #Mean total travel distance
         })
     
