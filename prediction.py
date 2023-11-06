@@ -62,7 +62,7 @@ import os
 models_dir = os.path.abspath('models')
 
 # Load the KNN model with the full path
-knn_model_path = os.path.join(models_dir, 'knn_model.joblib')
+knn_model_path = os.path.join(models_dir, 'knn.joblib')
 knn_model = joblib.load(knn_model_path)
 
 knn_model.fit(X_train, y_train)
