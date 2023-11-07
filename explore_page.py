@@ -26,14 +26,16 @@ def show_explore_page():
              """
             )
     import matplotlib.pyplot as plt
-    # Sort the DataFrame by 'flightdate' to ensure it's in chronological order
-    df.sort_values('flightDate', inplace=True)
+    # Group data by month and aggregate total fare
+    df['flightDate'] = pd.to_datetime(df['flightDate'])  # Ensure 'flightDate' is in datetime format
+    df['Month'] = df['flightDate'].dt.to_period('M')  # Extract the month from 'flightDate'
+    grouped_df = df.groupby('Month')['totalFare'].sum().reset_index()
 
     # Create a line plot
     fig, ax = plt.subplots(figsize=(12, 6))  # Adjust the figure size as needed
-    ax.plot(df['flightDate'], df['totalFare'], label='Total Fare', color='b', marker='o')
-    ax.set_title('Total Fare Over Time')
-    ax.set_xlabel('Flight Date')
+    ax.plot(grouped_df['Month'], grouped_df['totalFare'], label='Total Fare', color='b', marker='o')
+    ax.set_title('Total Fare Over Time (Grouped by Month)')
+    ax.set_xlabel('Month')
     ax.set_ylabel('Total Fare')
     ax.grid(True)
     ax.legend()
