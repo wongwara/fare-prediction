@@ -86,7 +86,7 @@ y_test_preds_lr = lr.predict(X_test)
 from tensorflow_decision_forests import keras
 
 # Define your model. Example: "RandomForestModel" for a random forest.
-keras_model = tfdf.keras.RandomForestModel(task=keras.Task.REGRESSION)
+keras_model = tfdf.keras.RandomForestModel(task=tfdf.keras.Task.REGRESSION)
 
 # Convert data to tf.data.Datasets
 batch_size = 100
