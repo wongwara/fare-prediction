@@ -188,7 +188,7 @@ def show_predict_page():
         tfdf_model.compile(metrics=["mean_squared_error"])
         total_fare_tfdf = tfdf_model.predict(X)
         total_fare_tfdf = np.round(total_fare_tfdf, 2)  # Round the value to two digits
-        total_fare_str_tfdf = str(total_fare_tfdf[0])  # Convert to string
+        total_fare_str_tfdf = str(total_fare_tfdf[0][0])  # Convert to string
         st.write(f"The total fare for your trip with tensorflow keras {total_fare_str_tfdf}$")
         
     
