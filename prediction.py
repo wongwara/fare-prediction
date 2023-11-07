@@ -74,14 +74,14 @@ knn_model.fit(X_train, y_train)
 y_train_preds_knn = knn_model.predict(X_train)
 y_test_preds_knn = knn_model.predict(X_test)
 
-from sklearn.linear_model import LinearRegression
+# from sklearn.linear_model import LinearRegression
 
-lr = LinearRegression()
-lr.fit(X_train, y_train)
+# lr = LinearRegression()
+# lr.fit(X_train, y_train)
 
 # Model evaluation for training set
-y_train_preds_lr = lr.predict(X_train)
-y_test_preds_lr = lr.predict(X_test)
+# y_train_preds_lr = lr.predict(X_train)
+# y_test_preds_lr = lr.predict(X_test)
 
 # from tensorflow_decision_forests import keras
 
@@ -107,9 +107,9 @@ y_test_preds_lr = lr.predict(X_test)
 # keras_model.predict(test_dataset)
 import pickle
 # Save the linear regression model
-data = {"model": lr}
-with open('saved_steps.pkl', 'wb') as file:
-    pickle.dump(data, file)
+# data = {"model": lr}
+# with open('saved_steps.pkl', 'wb') as file:
+#    pickle.dump(data, file)
 
 # Save the KNN model
 knn = {"knn_model": knn_model}
@@ -121,10 +121,10 @@ with open('saved_knn.pkl', 'wb') as file:
 #    pickle.dump(keras, file)
   
 # Load the linear regression model
-def load_model():
-    with open('saved_steps.pkl', 'rb') as file:
-        data = pickle.load(file)
-    return data["model"]
+# def load_model():
+   #with open('saved_steps.pkl', 'rb') as file:
+    #    data = pickle.load(file)
+    #return data["model"]
 
 # Load the KNN model
 def load_knn_model():
@@ -138,6 +138,6 @@ def load_knn_model():
 #        keras = pickle.load(file)
 #    return keras["keras_model"]
 
-regressor_loaded = load_model()
+# regressor_loaded = load_model()
 knn_regressor_loaded = load_knn_model()
 # keras_regressor_loaded = load_keras_model()
