@@ -25,5 +25,20 @@ def show_explore_page():
              Therefore, the objective of this project would be to develop a machine learning model that accepts airport name and flightdate return the predict total fare.
              """
             )
+    import matplotlib.pyplot as plt
+    st.subheader("Historical Total Fare Trends")
+    # Sort the DataFrame by 'flightdate' to ensure it's in chronological order
+    df.sort_values('flightDate', inplace=True)
+
+    # Create a line plot
+    plt.figure(figsize=(12, 6))  # Adjust the figure size as needed
+    plt.plot(df['flightDate'], df['totalFare'], label='Total Fare', color='b', marker='o')
+    plt.title('Total Fare Over Time')
+    plt.xlabel('Flight Date')
+    plt.ylabel('Total Fare')
+    plt.grid(True)
+    plt.legend()
+    plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
+    plt.show()
 
 
