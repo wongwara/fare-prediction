@@ -62,6 +62,7 @@ def show_predict_page():
     
     destination_airport = st.selectbox("Destination Airport", airport_options)
     destinationAirport = airport_dict[destination_airport]
+    
     # Set the default time to 10:30 AM
     default_time = time(10, 30)
     # Input departure time 
