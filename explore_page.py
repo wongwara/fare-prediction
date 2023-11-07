@@ -26,19 +26,20 @@ def show_explore_page():
              """
             )
     import matplotlib.pyplot as plt
-    st.subheader("Historical Total Fare Trends")
     # Sort the DataFrame by 'flightdate' to ensure it's in chronological order
     df.sort_values('flightDate', inplace=True)
 
     # Create a line plot
-    plt.figure(figsize=(12, 6))  # Adjust the figure size as needed
-    plt.plot(df['flightDate'], df['totalFare'], label='Total Fare', color='b', marker='o')
-    plt.title('Total Fare Over Time')
-    plt.xlabel('Flight Date')
-    plt.ylabel('Total Fare')
-    plt.grid(True)
-    plt.legend()
-    plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
-    plt.show()
+    fig, ax = plt.subplots(figsize=(12, 6))  # Adjust the figure size as needed
+    ax.plot(df['flightDate'], df['totalFare'], label='Total Fare', color='b', marker='o')
+    ax.set_title('Total Fare Over Time')
+    ax.set_xlabel('Flight Date')
+    ax.set_ylabel('Total Fare')
+    ax.grid(True)
+    ax.legend()
+    ax.tick_params(axis='x', rotation=45)  # Rotate x-axis labels for better readability
+
+    # Display the plot in Streamlit
+    st.pyplot(fig)
 
 
